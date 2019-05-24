@@ -1,0 +1,12 @@
+$ delete ivy-home
+
+$ copy-file changes/first.sbt build.sbt
+> reload
+> a/csPublishLocal
+$ delete build.sbt
+
+$ copy-file changes/second.sbt build.sbt
+> reload
+> update
+> b/compile
+$ delete build.sbt
