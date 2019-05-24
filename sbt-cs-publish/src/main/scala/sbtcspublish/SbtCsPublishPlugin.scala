@@ -25,7 +25,7 @@ object SbtCsPublishPlugin extends AutoPlugin {
     Def.taskDyn {
       def defaultIvyHome = file(sys.props("user.home")) / ".ivy2"
       val ivyHome = ivyPaths.value.ivyHome.getOrElse(defaultIvyHome)
-      val ivy2Local = ivyHome / "local-test"
+      val ivy2Local = ivyHome / "local"
       val arg = s"ivy:${ivy2Local.getCanonicalPath}"
       csPublish.toTask(arg)
     }
