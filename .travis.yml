@@ -1,0 +1,28 @@
+language: java
+os: linux
+jdk: openjdk8
+git:
+  depth: false
+before_install:
+  - mkdir .bin
+  - curl -Lo .bin/sbt https://raw.githubusercontent.com/coursier/sbt-extras/79b6cd6e0869ea04c4ba3c1e9666ae61401244ff/sbt
+  - chmod +x .bin/sbt
+  - export PATH="$(pwd)/.bin:$PATH"
+script: scripts/travis.sh
+stages:
+  - name: test
+  - name: release
+    if: (branch = master AND type = push) OR (tag IS present)
+jobs:
+  include:
+    - script: sbt sbt-cs-publish/scripted
+    - stage: release
+      script: sbt ci-release
+branches:
+  only:
+  - master
+  - /^v\d+\.\d+.*$/ # tagged versions
+cache:
+  directories:
+  - $HOME/.sbt
+  - $HOME/.cache
