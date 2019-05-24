@@ -1,0 +1,12 @@
+$ delete repo
+
+$ copy-file changes/first.sbt build.sbt
+> reload
+> a/csPublish repo
+$ delete build.sbt
+
+$ copy-file changes/second.sbt build.sbt
+> reload
+> update
+> b/compile
+$ delete build.sbt
