@@ -8,7 +8,7 @@ import sbt.complete.DefaultParsers._
 import sbt.Keys.{baseDirectory, ivyPaths, makeIvyXml, packagedArtifacts, projectID, scalaModuleInfo}
 import sbt.librarymanagement.{Artifact, CrossVersion}
 
-object SbtCsPublishPlugin extends AutoPlugin {
+object SbtCsPublishPlugin extends AutoPlugin with ApplyState {
 
   object autoImport {
     val csPublishLocal = taskKey[Unit]("")
