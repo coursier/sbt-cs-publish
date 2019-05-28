@@ -5,6 +5,9 @@ import java.net.URI
 import sbt.internal.SessionSettings
 import sbt.{BuiltinCommands, GlobalScope, Project, Reference, Scope, Select, Setting, State, Zero}
 
+// Adapted from the sbt-structure plugin.
+// Allows to load an `AutoPlugin` via the `apply` command of sbt, passing it the JAR of the plugin and the plugin class name.
+// The plugin should have no other dependencies than sbt for that to work.
 trait ApplyState extends (State => State) {
 
   def projectSettings: Seq[Setting[_]]
