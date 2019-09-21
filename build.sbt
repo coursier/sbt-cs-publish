@@ -24,6 +24,8 @@ lazy val `sbt-cs-publish` = project
   .enablePlugins(ScriptedPlugin)
   .settings(
     shared,
+    // https://github.com/sbt/sbt/issues/5049#issuecomment-528960415
+    dependencyOverrides := "org.scala-sbt" % "sbt" % "1.2.8" :: Nil,
     scriptedLaunchOpts ++= Seq(
       "-Xmx1024M",
       "-Dplugin.name=" + name.value,
