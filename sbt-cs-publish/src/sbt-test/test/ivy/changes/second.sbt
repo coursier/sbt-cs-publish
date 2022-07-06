@@ -1,7 +1,7 @@
 
 lazy val b = project
   .settings(
-    scalaVersion := "2.12.8",
+    scalaVersion := "2.12.16",
     resolvers += Resolver.url("repo", (baseDirectory.in(ThisBuild).value / "repo" / "").toURI.toURL)(
       Resolver.defaultIvyPatterns
     ),

@@ -13,7 +13,7 @@ inThisBuild(List(
   )
 ))
 
-val scala212 = "2.12.8"
+val scala212 = "2.12.16"
 val sbt10Version = "1.0.2"
 
 lazy val shared = Seq(
