@@ -34,7 +34,7 @@ lazy val `sbt-cs-publish` = project
     ),
     scriptedBufferLog := false,
     sbtPlugin := true,
-    sbtVersion.in(pluginCrossBuild) := sbt10Version
+    (pluginCrossBuild / sbtVersion) := sbt10Version
   )
 
 lazy val `sbt-cs-publish-root` = project
@@ -42,5 +42,5 @@ lazy val `sbt-cs-publish-root` = project
   .aggregate(`sbt-cs-publish`)
   .settings(
     shared,
-    skip.in(publish) := true
+    (publish / skip) := true
   )
