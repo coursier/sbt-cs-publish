@@ -1,0 +1,1 @@
+> This repository is about to be archived. It was meant to support the `publish` command of [coursier](https://github.com/coursier/coursier), which [has been discontinued](https://github.com/coursier/coursier/pull/2446).
